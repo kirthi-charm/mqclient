@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: kirthicharmmqclient 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kirthicharmmqclient
+  template:
+    metadata:
+      labels:
+        app: kirthicharmmqclient 
+    spec:
+      containers:
+        - name: kirthicharmmqclient 
+          image: mycontainerregistry77.azurecr.io/kirthicharmmqclient
+          ports:
+          - containerPort: 7600
