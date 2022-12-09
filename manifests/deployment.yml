@@ -1,19 +1,19 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: kirthicharmmqclient 
+    name: kirthicharmmqclient 
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: kirthicharmmqclient
+            app: kirthicharmmqclient
   template:
     metadata:
       labels:
-        app: kirthicharmmqclient 
+         app: kirthicharmmqclient 
     spec:
       containers:
-        - name: lucid_morse 
-          image: mycontainerregistry08122022.azurecr.io/mayankahuja/aceimage
-          ports:
-          - containerPort: 7800
+          - name: lucid_morse 
+           image: mycontainerregistry08122022.azurecr.io/mayankahuja/aceimage
+           ports:
+             - containerPort: 7800
