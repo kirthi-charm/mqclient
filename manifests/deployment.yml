@@ -1,22 +1,44 @@
-apiVersion : apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kirthicharmmqclient
+  name: ace
   labels:
-  app: kirthicharmmqclient
+    app: ace
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: kirthicharmmqclient
+      app: ace
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
   template:
     metadata:
-      name: kirthicharmmqclient
       labels:
-         app: kirthicharmmqclient
+        app: ace
     spec:
       containers:
-      - name: lucid_morse
-        image: mycontainerregistry08122022.azurecr.io/mayankahuja/aceimage
-        ports:
-        - containerPort: 7800
+        - name: ace
+          image: mycontainerregistry08122022.azurecr.io/mayankahuja/aceimage:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 7600
+              name: webui
+            - containerPort: 7800
+              name: ace-http
+            - containerPort: 7843
+              name: ace-https
+          env:
+            - name: LICENSE
+              value: accept
+            - name: ACE_SERVER_NAME
+              value: ACE_SERVER
+#            - name: LOG_FORMAT
+#              value: json
+#            - name: ACE_ENABLE_METRICS
+#              value: true
+          resources: {}
+      imagePullSecrets:
+        - name: azure-docker-registry
