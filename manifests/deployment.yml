@@ -16,4 +16,4 @@ spec:
         - name: lucid_morse 
           image: mycontainerregistry08122022.azurecr.io/mayankahuja/aceimage
           ports:
-          - containerPort: 7600
+          - containerPort: 7800
