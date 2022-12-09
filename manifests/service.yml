@@ -7,4 +7,4 @@ spec:
     ports:
     - port: 7600 
     selector:
-        app: lucid_morse
+        app: kirthicharmmqclient
