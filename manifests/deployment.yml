@@ -13,7 +13,7 @@ spec:
         app: kirthicharmmqclient 
     spec:
       containers:
-        - name: kirthicharmmqclient 
-          image: mycontainerregistry77.azurecr.io/kirthicharmmqclient
+        - name: lucid_morse 
+          image: mycontainerregistry08122022.azurecr.io/mayankahuja/aceimage
           ports:
           - containerPort: 7600
