@@ -1,10 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-    name: kirthicharmmqclient
+  name: kirthicharmmqclient
 spec:
-    type: LoadBalancer
+  type: LoadBalancer
+  selector:
+  app: kirthicharmmqclient
     ports:
-    - port: 7800 
-    selector:
-        app: kirthicharmmqclient
+    - port: 7800
+      targetPort: 7800
